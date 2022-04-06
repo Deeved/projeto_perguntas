@@ -32,7 +32,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
           Questao(perguntas[_perguntaSelecionada]),
           ElevatedButton(
             child: Text('Resposta 1'), 
-            onPressed: _responder
+            onPressed: _responder,
             ),
           ElevatedButton(
             child: Text('Resposta 2'),
