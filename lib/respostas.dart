@@ -6,13 +6,19 @@ class Respostas extends StatelessWidget {
 
   final String texto;
 
-  Respostas(this.texto);
+  final void Function() quandoSelecioando;
+
+  Respostas(this.texto, this.quandoSelecioando);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: null,
-      child: Text(texto),
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.all(8),
+      child: ElevatedButton(
+        onPressed: quandoSelecioando,
+        child: Text(texto),
+      ),
     );
   }
 }
