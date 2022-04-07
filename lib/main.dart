@@ -30,9 +30,15 @@ class _PerguntaAppState extends State<PerguntaApp> {
       },
       {
         'texto': 'Qual o seu instrutor favorito?',
-        'respostas': ['Maria', 'João', 'Leo', 'Preto']
+        'respostas': ['Maria', 'João', 'Leo', 'Pedro']
       },
     ];
+
+    List<Widget> respostas = [];
+
+    for(String textoResp in perguntas[_perguntaSelecionada].cast()['respostas']) {
+      respostas.add(Respostas(textoResp, _responder));
+    }
 
     return MaterialApp(
       home: Scaffold(
@@ -42,9 +48,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
       body: Column(
         children: <Widget>[
           Questao(perguntas[_perguntaSelecionada]['texto'].toString()),
-          Respostas('Resposta 01', _responder),
-          Respostas('Resposta 02', _responder),
-          Respostas('Resposta 03', _responder),
+          ...respostas,
         ],
       ),
     ));
