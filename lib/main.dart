@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:projeto_perguntas/respostas.dart';
 import './questao.dart';
@@ -17,9 +19,19 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> perguntas = [
-      'Qual é a sua cor favorita?',
-      'Qual é o seu animal favorito?'
+    final perguntas = [
+      {
+        'texto': 'Qual é a sua cor favorita?',
+        'respostas': ['Preto', 'Vermelho', 'Verde', 'Branco']
+      },
+      {
+        'texto': 'Qual é o seu animal favorito?',
+        'respostas': ['Coelho', 'Cobra', 'Elefante', 'Leão']
+      },
+      {
+        'texto': 'Qual o seu instrutor favorito?',
+        'respostas': ['Maria', 'João', 'Leo', 'Preto']
+      },
     ];
 
     return MaterialApp(
@@ -29,7 +41,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
       body: Column(
         children: <Widget>[
-          Questao(perguntas[_perguntaSelecionada]),
+          Questao(perguntas[_perguntaSelecionada]['texto'].toString()),
           Respostas('Resposta 01', _responder),
           Respostas('Resposta 02', _responder),
           Respostas('Resposta 03', _responder),
