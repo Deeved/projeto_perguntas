@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:projeto_perguntas/respostas.dart';
+import 'package:projeto_perguntas/resultado.dart';
 import './questao.dart';
 
 main() => runApp(PerguntaApp());
@@ -53,11 +52,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
           Questao(_perguntas[_perguntaSelecionada]['texto'].toString()),
           ...respostas.map((t) => Respostas(t, _responder)).toList(),
         ],
-      ): Center(
-        child: Text('Parabéns!', 
-        style: TextStyle(fontSize: 28),
-        ),
-      ),
+      ): Resultado()
     ));
   }
 }
